@@ -11,7 +11,7 @@ app = FastAPI(
 # CORS — allow all origins for development (restrict in production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://inventory-management-gules-delta.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
