@@ -1,0 +1,338 @@
+/* ─── Reset & Base ──────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242836;
+  --border: #2e3345;
+  --text: #e4e6f0;
+  --text-dim: #8b8fa3;
+  --accent: #6c5ce7;
+  --accent-hover: #7c6ff7;
+  --green: #00b894;
+  --red: #e74c3c;
+  --orange: #f39c12;
+  --blue: #0984e3;
+  --radius: 10px;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* ─── Header ──────────────────────────────── */
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.app-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), #a29bfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.app-header p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* ─── Tabs ────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  padding: 4px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+.tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  color: var(--text);
+  background: var(--surface2);
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ─── Card / Panel ────────────────────────── */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+/* ─── Toolbar ─────────────────────────────── */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── Forms ───────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form-group label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+input,
+select {
+  padding: 9px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-family: var(--font);
+  outline: none;
+  transition: border 0.2s;
+}
+input:focus,
+select:focus {
+  border-color: var(--accent);
+}
+input::placeholder {
+  color: var(--text-dim);
+}
+
+/* ─── Buttons ─────────────────────────────── */
+button,
+.btn {
+  font-family: var(--font);
+  cursor: pointer;
+}
+.btn {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+.btn-green {
+  background: var(--green);
+  color: #fff;
+}
+.btn-green:hover {
+  opacity: 0.85;
+}
+.btn-red {
+  background: var(--red);
+  color: #fff;
+}
+.btn-red:hover {
+  opacity: 0.85;
+}
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 0.75rem;
+}
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* ─── Table ───────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+tr:hover td {
+  background: var(--surface2);
+}
+
+/* ─── Status Badges ───────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.badge-pending {
+  background: rgba(243, 156, 18, 0.15);
+  color: var(--orange);
+}
+.badge-confirmed {
+  background: rgba(9, 132, 227, 0.15);
+  color: var(--blue);
+}
+.badge-shipped {
+  background: rgba(108, 92, 231, 0.15);
+  color: var(--accent);
+}
+.badge-delivered {
+  background: rgba(0, 184, 148, 0.15);
+  color: var(--green);
+}
+.badge-cancelled {
+  background: rgba(231, 76, 60, 0.15);
+  color: var(--red);
+}
+
+/* ─── Alert / Toast ───────────────────────── */
+.alert {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  margin-bottom: 14px;
+  animation: slideIn 0.25s ease;
+}
+.alert-error {
+  background: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: var(--red);
+}
+.alert-success {
+  background: rgba(0, 184, 148, 0.12);
+  border: 1px solid rgba(0, 184, 148, 0.3);
+  color: var(--green);
+}
+
+/* ─── Summary Cards ───────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.summary-card {
+  background: var(--surface2);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+}
+.summary-card .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), #a29bfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.summary-card .label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── Misc ────────────────────────────────── */
+.empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+.loading {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 30px;
+}
+
+/* items builder */
+.order-items-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.order-item-row {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+.order-item-row .form-group {
+  flex: 1;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
