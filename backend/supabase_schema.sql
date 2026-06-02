@@ -1,8 +1,3 @@
--- ============================================================
--- Inventory & Order Management System — Supabase SQL Schema
--- Run this in the Supabase SQL Editor (Dashboard → SQL Editor)
--- ============================================================
-
 -- 1. PRODUCTS TABLE
 CREATE TABLE IF NOT EXISTS products (
     id            BIGSERIAL PRIMARY KEY,
@@ -124,11 +119,6 @@ CREATE TRIGGER trigger_orders_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 
 
--- ============================================================
--- ROW LEVEL SECURITY (RLS) — Disable for service-role usage
--- If using anon key, you'll need to set up proper RLS policies.
--- ============================================================
-
 ALTER TABLE products       ENABLE ROW LEVEL SECURITY;
 ALTER TABLE customers      ENABLE ROW LEVEL SECURITY;
 ALTER TABLE orders         ENABLE ROW LEVEL SECURITY;
@@ -153,7 +143,3 @@ CREATE POLICY "Allow all for service role" ON order_items
 CREATE POLICY "Allow all for service role" ON inventory_logs
     FOR ALL USING (true) WITH CHECK (true);
 
-
--- ============================================================
--- DONE! Your tables are ready.
--- ============================================================
